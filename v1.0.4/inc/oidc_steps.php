@@ -309,7 +309,7 @@ function oidc_step_2() {
             $userinfo['error'] = $error;   
         }
 
-        return $userinfo;   
+        //[dnc72]return $userinfo;   
 
     } else {
         // Authorize redirect with error when Not Authorize 
@@ -346,5 +346,7 @@ function oidc_step_2() {
 
 
     }
+    
+    return $userinfo;    //[dnc72]
 
 }
