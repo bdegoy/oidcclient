@@ -7,6 +7,7 @@ Voyez :
 
 2019/02/13 - //[3.2] inc/securiser_action.php : version pour SPIP 3.2.??? => v1.0.4
 2019/06/17 _ [1] - Bug : toujours adopter un chemin relatif.
+[dnc36c] 2019/08/22 - OIDC Monitor : SRA + CORS : withCredentials afin d'obtenir le cookie SLI.
 
 Auteur : B.Degoy DnC
 Copyright (c) 2018-2019 B.Degoy

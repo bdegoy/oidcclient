@@ -3,12 +3,10 @@
 Plugin OpenID Connect client pour SPIP
 OIDC Client Monitoring
 Interroge le controleur OIDC Authorize avec prompt=none pour afficher l'état de connexion.
-Voir: https://oa.dnc/global/web/91
 Voir également action_logout() dans oidcclient_options.php.
 dnc28, dnc36
 Auteur : B.Degoy DnC
 Copyright (c) 2019 B.Degoy
-Licence GPL v3.0
 ]
 
 <?php
@@ -207,6 +205,7 @@ $loggedbyoidc = (bool)session_get('loggedby');  //[dnc54]
                                 $.ajax({
                                     type : "get",
                                     url : "<?php echo OIDC_AUTHORIZATION_ENDPOINT; ?>",
+                                    xhrFields: { 'withCredentials' : 'true' },  //[dnc36c] when CORS allow getting SLI cookie in Authorize 
                                     data : { 'response_type' : 'code',
                                         'client_id' : "<?php echo OIDC_CLIENT_ID; ?>",
                                         'user_id' : login,
@@ -242,6 +241,7 @@ $loggedbyoidc = (bool)session_get('loggedby');  //[dnc54]
             $.ajax({
                 type : "get",
                 url : "<?php echo OIDC_AUTHORIZATION_ENDPOINT; ?>",
+                xhrFields: { 'withCredentials' : 'true' },    //[dnc36c] when CORS allow getting SLI cookie in Authorize 
                 data : { 'response_type' : 'code',
                     'client_id' : "<?php echo OIDC_CLIENT_ID; ?>",
                     'user_id' : login,
